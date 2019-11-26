@@ -65,7 +65,7 @@ spec:
     - name: revision
       value: "master"
     - name: event 
-      value: $(event)
+      value: $(event.head_commit)
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: EventListener
