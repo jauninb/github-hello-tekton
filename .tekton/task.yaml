@@ -33,6 +33,8 @@ spec:
           value: $(inputs.params.repository)
         - name: REVISION
           value: $(inputs.params.revision)
+        - name: EVENT 
+          value: $(inputs.params.event)
       command: ["/bin/sh", "-c"]
       args:
         - set -e -o pipefail;
