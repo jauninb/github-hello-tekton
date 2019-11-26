@@ -23,6 +23,7 @@ spec:
     - name: clusterNamespace
       description: The Kubernetes cluster namespace
       default: prod
+    - name: event
   resourcetemplates:
     - apiVersion: tekton.dev/v1alpha1
       kind: PipelineRun
@@ -50,6 +51,8 @@ spec:
           value: $(params.clusterRegion)
         - name: clusterNamespace
           value: $(params.clusterNamespace)
+        - name: event
+          value: $(params.event)
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: TriggerBinding
@@ -61,6 +64,8 @@ spec:
       value: "https://github.com/open-toolchain/hello-tekton"
     - name: revision
       value: "master"
+    - name: event 
+      value: $(event)
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: EventListener

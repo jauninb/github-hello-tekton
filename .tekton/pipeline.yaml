@@ -25,6 +25,7 @@ spec:
     - name: clusterNamespace
       description: The Kubernetes cluster namespace
       default: prod
+    - name: event
   tasks:
     - name: pipeline-build-task
       taskRef:
@@ -41,7 +42,9 @@ spec:
         - name: registryNamespace
           value: $(params.registryNamespace)
         - name: registryRegion
-          value: $(params.registryRegion)          
+          value: $(params.registryRegion)      
+        - name: event
+          value: $(params.event)
     - name: pipeline-validate-task
       runAfter: [pipeline-build-task]
       taskRef:
